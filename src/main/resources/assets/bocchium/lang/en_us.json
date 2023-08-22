@@ -1,6 +1,6 @@
 {
   "keybind.bocchium.category": "Bocchium",
-  "keybind.bocchium.keyName": "Switch Bedrodium work",
+  "keybind.bocchium.keyName": "Switch Bocchium work",
   "keybind.bocchium.onSwitch": "Bocchium: ",
   "keybind.bocchium.true": "ON",
   "keybind.bocchium.false": "OFF"

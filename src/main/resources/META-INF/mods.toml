@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43,)"
+loaderVersion = "[36,)"
 license = "LGPL-v3"
 
 [[mods]]
@@ -10,10 +10,3 @@ authors="TeamPotato"
 description = '''
 Bocchi The Bedrock!
 '''
-
-[[dependencies.bocchium]]
-    modId = "rubidium"
-    mandatory = true
-    versionRange = "[0.6.2b,)"
-    ordering = "NONE"
-    side = "CLIENT"
