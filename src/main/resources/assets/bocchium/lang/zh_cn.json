@@ -1,0 +1,7 @@
+{
+  "keybind.bocchium.category": "Bocchium",
+  "keybind.bocchium.keyName": "开关Bocchium",
+  "keybind.bocchium.onSwitch": "Bocchium：",
+  "keybind.bocchium.true": "已开启",
+  "keybind.bocchium.false": "已关闭"
+}
