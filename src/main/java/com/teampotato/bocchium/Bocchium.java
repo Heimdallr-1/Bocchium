@@ -7,6 +7,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +15,8 @@ import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkConstants;
 import org.lwjgl.glfw.GLFW;
 
@@ -49,7 +52,7 @@ public class Bocchium {
         ClientWorld clientWorld = minecraftClient.world;
         if (clientWorld == null) return false;
         DimensionType dimensionType = clientWorld.getDimension();
-        return facing == Direction.UP && height == dimensionType.logicalHeight() - 1 && dimensionType.hasCeiling();
+        return facing == Direction.UP && height == dimensionType.getLogicalHeight() - 1 && dimensionType.hasCeiling();
     }
 
     public Bocchium() {
@@ -58,9 +61,14 @@ public class Bocchium {
         ctx.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true));
         minecraftClient = MinecraftClient.getInstance();
         MinecraftForge.EVENT_BUS.register(KeyInput.class);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
     }
 
     public static boolean shouldCull(Direction facing, int height) {
         return (canCullBottom(facing, height) || canCullTop(facing, height)) && PASS_SIDE;
+    }
+
+    private void onClientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> ClientRegistry.registerKeyBinding(KEY_BINDING));
     }
 }
