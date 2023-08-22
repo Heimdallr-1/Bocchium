@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[43,)"
-license = "MIT"
+license = "LGPL-v3"
 
 [[mods]]
 modId = "bocchium"
@@ -15,12 +15,5 @@ Bocchi The Bedrock!
     modId = "rubidium"
     mandatory = true
     versionRange = "[0.6.2b,)"
-    ordering = "NONE"
-    side = "CLIENT"
-
-[[dependencies.bocchium]]
-    modId = "papi"
-    mandatory = true
-    versionRange = "[0.0.1,)"
     ordering = "NONE"
     side = "CLIENT"

@@ -31,7 +31,6 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "curse.maven:rubidium-574856:4568727"
-    modImplementation files("libs/papi-1.19.2-0.0.1.jar")
     forge "net.minecraftforge:forge:${project.forge_version}"
 }
 
