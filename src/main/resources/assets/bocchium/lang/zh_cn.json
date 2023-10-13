@@ -1,7 +1,8 @@
 {
-  "keybind.bocchium.category": "Bocchium",
-  "keybind.bocchium.keyName": "开关Bocchium",
-  "keybind.bocchium.onSwitch": "Bocchium：",
-  "keybind.bocchium.true": "已开启",
-  "keybind.bocchium.false": "已关闭"
+  "bocchium.cull_top": "剔除顶部",
+  "bocchium.cull_top.tooltip": "当要渲染的方块位于维度顶部且此维度为类下界维度时，禁用其顶面的渲染。",
+  "bocchium.cull_bottom": "剔除底部",
+  "bocchium.cull_bottom.tooltip": "当要渲染的方块位于维度底部时，禁用其底面的渲染。",
+  "bocchium.enable": "开启Bocchium",
+  "bocchium.desc": "Bocchium是一个性能模组，通过剔除维度内底层和顶层的方块来获得额外的Fps。"
 }

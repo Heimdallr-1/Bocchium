@@ -15,9 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BlockOcclusionCacheMixin {
     @Inject(method = "shouldDrawSide", at = @At("HEAD"), cancellable = true)
     private void onShouldDrawSide(BlockState selfState, BlockView view, BlockPos pos, Direction facing, CallbackInfoReturnable<Boolean> cir) {
-        if (Bocchium.shouldCull(facing, pos.getY())) {
-            cir.setReturnValue(false);
-            cir.cancel();
-        }
+        if (Bocchium.shouldCull(facing, pos.getY())) cir.setReturnValue(false);
     }
 }
