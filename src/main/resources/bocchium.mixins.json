@@ -9,5 +9,8 @@
   },
   "client": [
     "BlockOcclusionCacheMixin"
+  ],
+  "mixins": [
+    "SodiumGameOptionPagesMixin"
   ]
 }
