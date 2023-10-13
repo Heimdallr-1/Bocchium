@@ -30,7 +30,7 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "curse.maven:rubidium-574856:4568727"
+    modImplementation("curse.maven:embeddium-908741:4792094")
     forge "net.minecraftforge:forge:${project.forge_version}"
 }
 
