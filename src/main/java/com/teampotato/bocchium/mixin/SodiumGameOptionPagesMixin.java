@@ -25,7 +25,7 @@ public abstract class SodiumGameOptionPagesMixin {
     @Inject(method = "performance", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z", remap = false, ordinal = 0, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
     private static void insertSetting(CallbackInfoReturnable<OptionPage> cir, @NotNull List<OptionGroup> groups) {
         OptionImpl<SodiumGameOptions, Boolean> enableBocchium = OptionImpl.createBuilder(Boolean.class, sodiumOpts)
-                .setName(I18n.translate("keybind.bocchium.keyName"))
+                .setName(I18n.translate("bocchium.enable"))
                 .setTooltip(I18n.translate("bocchium.desc"))
                 .setControl(TickBoxControl::new)
                 .setBinding(

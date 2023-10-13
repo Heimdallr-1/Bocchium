@@ -3,10 +3,6 @@
   "bocchium.cull_top.tooltip": "If the rendering block is in the top of the nether-like dimension, disable its top side rendering.",
   "bocchium.cull_bottom": "Should Cull Bottom",
   "bocchium.cull_bottom.tooltip": "If the rendering block is in the bottom of the dimension, disable its bottom side rendering.",
-  "keybind.bocchium.category": "Bocchium",
-  "keybind.bocchium.keyName": "Switch Bocchium Work",
-  "keybind.bocchium.onSwitch": "Bocchium: ",
-  "keybind.bocchium.true": "ON",
-  "keybind.bocchium.false": "OFF",
+  "bocchium.enable": "Enable Bocchium",
   "bocchium.desc": "Bocchium is performance mod that culls the bottom & top bedrocks in dimensions to gain extra Fps"
 }
