@@ -1,0 +1,1 @@
+# Fix video settings not shown with embeddium
