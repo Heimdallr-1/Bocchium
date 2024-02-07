@@ -3,7 +3,6 @@ package com.teampotato.bocchium;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -13,7 +12,6 @@ import net.minecraftforge.network.NetworkConstants;
 
 @Mod(Bocchium.MOD_ID)
 public class Bocchium {
-    public static MinecraftClient minecraftClient;
     public static final String MOD_ID = "bocchium";
     public static final ForgeConfigSpec config;
     public static final ForgeConfigSpec.BooleanValue shouldCullTopBedrock, shouldCullBottomBedrock, enableBocchium;
@@ -30,24 +28,22 @@ public class Bocchium {
 
     public static boolean canCullBottom(Direction facing, int height) {
         if (!shouldCullBottomBedrock.get()) return false;
-        ClientWorld clientWorld = minecraftClient.world;
+        ClientWorld clientWorld = MinecraftClient.getInstance().world;
         if (clientWorld == null) return false;
         return facing == Direction.DOWN && height == clientWorld.getBottomY();
     }
 
     public static boolean canCullTop(Direction facing, int height) {
         if (!shouldCullTopBedrock.get()) return false;
-        ClientWorld clientWorld = minecraftClient.world;
+        ClientWorld clientWorld = MinecraftClient.getInstance().world;
         if (clientWorld == null) return false;
-        DimensionType dimensionType = clientWorld.getDimension();
-        return facing == Direction.UP && height == dimensionType.getLogicalHeight() - 1 && dimensionType.hasCeiling();
+        return facing == Direction.UP && height == clientWorld.getTopY() - 1 && clientWorld.getDimension().hasCeiling();
     }
 
     public Bocchium() {
         ModLoadingContext ctx = ModLoadingContext.get();
         ctx.registerConfig(ModConfig.Type.CLIENT, config);
         ctx.registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true));
-        minecraftClient = MinecraftClient.getInstance();
     }
 
     public static boolean shouldCull(Direction facing, int height) {
